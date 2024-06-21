@@ -16,7 +16,7 @@ const RestoCard = () => {
           <p>categories</p>
           <p>isOpen</p>
         </div>
-        <button className=" bg-blue-950 font-sm hover:bg-blue-900 text-white font-thin rounded-sm">
+        <button className="w-full p-1 bg-blue-950 font-sm hover:bg-blue-900 text-white font-thin rounded-sm">
           LEARN MORE
         </button>
       </div>
