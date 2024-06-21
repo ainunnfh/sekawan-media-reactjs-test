@@ -11,10 +11,10 @@ export default function Home() {
 
     <div className="flex gap-2">
 
-    <RestoCard title={"Tittle 1"} starRating={"⭐⭐⭐⭐⭐"} categories={"Thai"} isOpen={"OPEN NOW"} />
-    <RestoCard title={"Tittle 2"} starRating={"⭐⭐⭐"} categories={"Seafood"} isOpen={"CLOSED"}/>
-    <RestoCard title={"Tittle 3"} starRating={"⭐⭐⭐⭐"} categories={"Japanese"} isOpen={"OPEN NOW"}/>
-    <RestoCard title={"Tittle 4"} starRating={"⭐⭐⭐⭐"} categories={"Italian"} isOpen={"OPEN NOW"}/>
+    <RestoCard title={"Tittle 1"}  categories={"Thai"} isOpen={"OPEN NOW"} />
+    <RestoCard title={"Tittle 2"} categories={"Seafood"} isOpen={"CLOSED"}/>
+    <RestoCard title={"Tittle 3"} categories={"Japanese"} isOpen={"OPEN NOW"}/>
+    <RestoCard title={"Tittle 4"} categories={"Italian"} isOpen={"OPEN NOW"}/>
     </div>
     </>
   );
