@@ -1,9 +1,9 @@
 import React from "react";
+import StarRating from "./StarRating";
 
 interface IProps {
     image?:string;
     title: string;
-    starRating: string;
     categories: string;
     isOpen: string;
 }
@@ -17,13 +17,13 @@ const RestoCard = (props: IProps) => {
         </div>
 
         <div className="mt-2">{props.title}</div>
-        <div>{props.starRating}</div>
+        <div><StarRating/></div>
 
         <div className="flex justify-between">
           <p>{props.categories}</p>
           <p className="text-sm">{props.isOpen}</p>
         </div>
-        <button className="w-full p-1 bg-blue-950 font-sm hover:bg-blue-900 text-white font-thin rounded-sm">
+        <button className="w-full p-1 mt-3 bg-blue-950 font-sm hover:bg-blue-900 text-white font-thin rounded-sm">
           LEARN MORE
         </button>
       </div>
