@@ -7,13 +7,33 @@ const Filter = () => {
       <div className="flex gap-3">
         Filter By:
         <div className="flex gap-3 ">
-          <button className="hover:text-blue-900">Open Now</button>
-          <button className="hover:text-blue-900">Price</button>
+          <select>
+            <option value="">Open Now</option>
+            {Array.from(new Set(restoData.map((resto) => resto.isOpen))).map(
+              (isOpen) => (
+                <option key={isOpen} value={isOpen}>
+                  {isOpen}
+                </option>
+              )
+            )}
+          </select>
+          <select className="hover:text-blue-900">
+            <option value="">Price</option>
+            {Array.from(new Set(restoData.map((resto) => resto.price))).map(
+              (price) => (
+                <option key={price} value={price}>
+                  {price}
+                </option>
+              )
+            )}
+          </select>
           <select className="hover:text-blue-900">
             <option value="">Categories</option>
-            {restoData.map((resto) => (
-              <option key={resto.categories} value={resto.categories}>
-                {resto.categories}
+            {Array.from(
+              new Set(restoData.map((resto) => resto.categories))
+            ).map((categories) => (
+              <option key={categories} value={categories}>
+                {categories}
               </option>
             ))}
           </select>
