@@ -2,20 +2,29 @@ import Filter from "@/components/Filter";
 import Header from "@/components/Header";
 import RestoCard from "@/components/RestoCard";
 import Image from "next/image";
+import { restoData } from "./restoData";
 
-export default function Home() {
+
+
+export default async function Home() {
+  // const data = await fetchData();
+  // console.log(restoData)
   return (
     <>
-    <Header/>
-    <Filter/>
+      <Header />
+      <Filter />
 
-    <div className="flex gap-2">
-
-    <RestoCard title={"Tittle 1"}  categories={"Thai"} isOpen={"OPEN NOW"} />
-    <RestoCard title={"Tittle 2"} categories={"Seafood"} isOpen={"CLOSED"}/>
-    <RestoCard title={"Tittle 3"} categories={"Japanese"} isOpen={"OPEN NOW"}/>
-    <RestoCard title={"Tittle 4"} categories={"Italian"} isOpen={"OPEN NOW"}/>
-    </div>
+      <div className="flex gap-2">
+        {restoData.map((resto) => (
+          <RestoCard
+            key={resto.name}
+            title={resto.name}
+            categories={resto.categories}
+            price={resto.price}
+            isOpen={resto.isOpen}
+          />
+        ))}
+      </div>
     </>
   );
 }
