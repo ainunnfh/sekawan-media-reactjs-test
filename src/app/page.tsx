@@ -12,7 +12,7 @@ export default async function Home() {
       <Header />
       <Filter />
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         {restoData.map((resto) => (
           <RestoCard
             id={resto.id}
