@@ -4,8 +4,6 @@ import RestoCard from "@/components/RestoCard";
 import Image from "next/image";
 import { restoData } from "./restoData";
 
-
-
 export default async function Home() {
   // const data = await fetchData();
   // console.log(restoData)
@@ -17,6 +15,7 @@ export default async function Home() {
       <div className="flex gap-2">
         {restoData.map((resto) => (
           <RestoCard
+            id={resto.id}
             key={resto.name}
             title={resto.name}
             categories={resto.categories}
