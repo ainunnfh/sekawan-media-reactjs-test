@@ -5,8 +5,6 @@ import Image from "next/image";
 import { restoData } from "./restoData";
 
 export default async function Home() {
-  // const data = await fetchData();
-  // console.log(restoData)
   return (
     <>
       <Header />
