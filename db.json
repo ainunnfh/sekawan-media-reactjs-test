@@ -1,0 +1,74 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Sushi Place",
+      "categories": "Japanese",
+      "price": "$$",
+      "isOpen": true
+    },
+    {
+      "id": 2,
+      "name": "Cafe Lumina",
+      "categories": "Thai",
+      "price": "$",
+      "isOpen": true
+    },
+    {
+      "id": 3,
+      "name": "Sincoffee",
+      "categories": "American",
+      "price": "$$$",
+      "isOpen": false
+    },
+    {
+      "id": 4,
+      "name": "Sushi Paradise",
+      "categories": "Japanese",
+      "price": "$$",
+      "isOpen": true
+    },
+    {
+      "id": 5,
+      "name": "BBQ",
+      "categories": "Mexican",
+      "price": "$",
+      "isOpen": true
+    },
+    {
+      "id": 6,
+      "name": "Burger World",
+      "categories": "Thai",
+      "price": "$$",
+      "isOpen": true
+    },
+    {
+      "id": 7,
+      "name": "Pizza Haven",
+      "categories": "Italian",
+      "price": "$$",
+      "isOpen": false
+    },
+    {
+      "id": 8,
+      "name": "KFC",
+      "categories": "American",
+      "price": "$",
+      "isOpen": true
+    },
+    {
+      "id": 9,
+      "name": "Sushi Wakatu",
+      "categories": "Seafood",
+      "price": "$$",
+      "isOpen": true
+    },
+    {
+      "id": 10,
+      "name": "Fast Food",
+      "categories": "Japanese",
+      "price": "$$",
+      "isOpen": true
+    }
+  ]
+}
