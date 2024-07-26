@@ -1,14 +1,21 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { restoData } from "@/app/restoData";
 
 const Filter = () => {
+  const byPrice = restoData.map((resto) => resto.price);
+  const [selectedIsOpen, setselectedIsOpen] = useState("");
+  console.log(selectedIsOpen);
+  const handleOpen = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setselectedIsOpen(event.target.value);
+  };
   return (
     <div className="mx-3 p-4">
       <div className="flex gap-3">
         Filter By:
         <div className="flex gap-3 ">
           <select>
-            <option value="">Open Now</option>
+            <option value={selectedIsOpen}>Open Now</option>
             {Array.from(new Set(restoData.map((resto) => resto.isOpen))).map(
               (isOpen) => (
                 <option key={isOpen} value={isOpen}>
@@ -27,7 +34,7 @@ const Filter = () => {
               )
             )}
           </select>
-          <select className="hover:text-blue-900">
+          <select className="hover:text-blue-900" value={selectedIsOpen}>
             <option value="">Categories</option>
             {Array.from(
               new Set(restoData.map((resto) => resto.categories))
