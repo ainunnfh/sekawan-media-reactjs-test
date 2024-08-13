@@ -6,9 +6,7 @@ import DetailViewComponent from "@/components/DetailViewComponent";
 import { restoData } from "@/app/restoData";
 
 const DetailViewId = () => {
-  console.log(restoData)
   const params = useParams();
-  console.log("params", params.detailViewId);
   return (
     <div>
       <DetailViewComponent />
