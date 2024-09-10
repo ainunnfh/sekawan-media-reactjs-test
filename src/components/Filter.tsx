@@ -1,48 +1,36 @@
-"use client";
 import React, { useState } from "react";
-import { restoData } from "@/app/restoData";
+import { IRestoData, restoData } from "@/app/restoData";
 
-const Filter = () => {
-  const byPrice = restoData.map((resto) => resto.price);
-  const [selectedIsOpen, setselectedIsOpen] = useState("");
-  console.log(selectedIsOpen);
-  const handleOpen = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setselectedIsOpen(event.target.value);
+interface IFilterProps {
+  selectedFilter: string;
+  setSelectedFilter: (value: string) => void;
+}
+const Filter: React.FC<IFilterProps> = ({
+  selectedFilter,
+  setSelectedFilter,
+}) => {
+  const [filteredData, setFilteredData] = useState<IRestoData[]>(restoData);
+  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    setSelectedFilter(value);
+
+    if (value === "OPEN NOW") {
+      setFilteredData(restoData.filter((resto) => resto.isOpen === "OPEN NOW"));
+    } else if (value === "CLOSED") {
+      setFilteredData(restoData.filter((resto) => resto.isOpen === "CLOSED"));
+    } else {
+      setFilteredData(restoData);
+    }
   };
   return (
     <div className="mx-3 p-4">
       <div className="flex gap-3">
         Filter By:
         <div className="flex gap-3 ">
-          <select>
-            <option value={selectedIsOpen}>Open Now</option>
-            {Array.from(new Set(restoData.map((resto) => resto.isOpen))).map(
-              (isOpen) => (
-                <option key={isOpen} value={isOpen}>
-                  {isOpen}
-                </option>
-              )
-            )}
-          </select>
-          <select className="hover:text-blue-900">
-            <option value="">Price</option>
-            {Array.from(new Set(restoData.map((resto) => resto.price))).map(
-              (price) => (
-                <option key={price} value={price}>
-                  {price}
-                </option>
-              )
-            )}
-          </select>
-          <select className="hover:text-blue-900" value={selectedIsOpen}>
-            <option value="">Categories</option>
-            {Array.from(
-              new Set(restoData.map((resto) => resto.categories))
-            ).map((categories) => (
-              <option key={categories} value={categories}>
-                {categories}
-              </option>
-            ))}
+          <select value={selectedFilter} onChange={handleFilterChange}>
+            <option value="ALL">All</option>
+            <option value="OPEN NOW">Open Now</option>
+            <option value="CLOSED">Closed</option>
           </select>
         </div>
       </div>
