@@ -1,16 +1,8 @@
 import React from "react";
 import StarRating from "./StarRating";
+import { IRestoData } from "@/app/restoData";
 
-interface IProps {
-  id: number;
-  image?: string;
-  title: string;
-  categories: string;
-  isOpen: string;
-  price: string;
-}
-
-const RestoCard = (props: IProps) => {
+const RestoCard:React.FC<IRestoData> = (props) => {
   return (
     <div className="mx-3 p-4 border border-separate">
       <div className="">
@@ -18,7 +10,7 @@ const RestoCard = (props: IProps) => {
           <img src="https://picsum.photos/200/120?grayscale" alt="" />
         </div>
 
-        <div className="mt-2">{props.title}</div>
+        <div className="mt-2">{props.name}</div>
         <div>
           <StarRating />
         </div>
