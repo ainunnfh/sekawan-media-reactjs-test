@@ -1,4 +1,4 @@
-interface IRestoData {
+export interface IRestoData {
   id: number;
   categories: string;
   name: string;
