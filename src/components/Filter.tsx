@@ -6,16 +6,22 @@ interface IFilterProps {
   setSelectedFilter: (value: string) => void;
   selectByPrice?: string;
   setSelectedPrice?: (value: string) => void;
+  selectedCategory?: string;
+  setSelectedCategory?: (value: string) => void;
 }
 const Filter: React.FC<IFilterProps> = ({
   selectedFilter,
   setSelectedFilter,
   selectByPrice,
   setSelectedPrice,
+  selectedCategory,
+  setSelectedCategory,
 }) => {
   const [filteredData, setFilteredData] = useState<IRestoData[]>(restoData);
   const [filteredPrice, setFilteredPrice] = useState<IRestoData[]>(restoData);
-  // console.log(filteredPrice);
+  const [filteredCategory, setFilteredCategory] =
+    useState<IRestoData[]>(restoData);
+  console.log(filteredCategory);
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     setSelectedFilter(value);
@@ -44,6 +50,27 @@ const Filter: React.FC<IFilterProps> = ({
     }
   };
 
+  const handleCategory = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    setSelectedCategory?.(value);
+
+    if (value === "Japanese") {
+      setFilteredCategory(
+        restoData.filter((resto) => resto.categories === "Japanese")
+      );
+    } else if (value === "Mexican") {
+      setFilteredCategory(
+        restoData.filter((resto) => resto.categories === "Mexican")
+      );
+    } else if (value === "Italian") {
+      restoData.filter((resto) => resto.categories === "Italian");
+    } else if (value === "American") {
+      restoData.filter((resto) => resto.categories === "American");
+    } else {
+      setFilteredCategory(restoData);
+    }
+  };
+
   return (
     <div className="mx-3 p-4">
       <div className="flex gap-3">
@@ -61,6 +88,13 @@ const Filter: React.FC<IFilterProps> = ({
           <option value="$$">$$</option>
           <option value="$$$">$$$</option>
         </select>
+        {/* <select value={selectedCategory} onChange={handleCategory}>
+          <option value="category">Category</option>
+          <option value="Mexican">Mexican</option>
+          <option value="American">American</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Italian">Italian</option>
+        </select> */}
       </div>
     </div>
   );
